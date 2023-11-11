@@ -1,14 +1,13 @@
 pipeline {
-	agent any
+	agent {
+		docker {
+			image 'composer:latest'
+		}
+	}
 	stages {
 		stage('Checkout SCM') {
 			steps {
 				checkout scm
-			}
-		}
-		stage('Install Composer') {
-			steps {
-				sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer'
 			}
 		}
 		stage('Build') {
