@@ -5,11 +5,6 @@ pipeline {
 		}
 	}
 	stages {
-		stage('ECHO ECHO') {
-			steps {
-				echo "docker ps"
-			}
-		}
 		stage('Checkout SCM') {
 			steps {
 				checkout scm
