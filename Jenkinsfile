@@ -6,6 +6,11 @@ pipeline {
 				checkout scm
 			}
 		}
+		stage('Install Composer') {
+			steps {
+				sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer'
+			}
+		}
 		stage('Build') {
 			steps {
 				sh 'composer install'
